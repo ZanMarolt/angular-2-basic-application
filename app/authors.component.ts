@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core'
+import {AuthorService} from './author.service'
 
 @Component({
     selector: 'authors',
@@ -11,10 +12,14 @@ import {Component} from 'angular2/core'
             </li>
         </ul>
     `,
+    providers: [AuthorService]
 })
 
 export class AuthorsComponent {
     title:string = 'The title of authors page';
-    authors = ["Author1", "Author2", "Author3"]
+    authors:string[];
 
+    constructor(authorService: AuthorService){
+        this.authors = authorService.getAuthors();
+    }
 }
