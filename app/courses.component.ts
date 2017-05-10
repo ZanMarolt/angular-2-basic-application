@@ -8,7 +8,7 @@ import {AutoGrowDirective} from "./auto-grow.directive";
 @Component({
     selector: 'courses',
     template: `
-        <h2>Courses</h2>
+        <h2 [class.active]="isActive">Courses</h2>
         {{ title }}
         <input autoGrow />
         <ul>
@@ -24,6 +24,7 @@ import {AutoGrowDirective} from "./auto-grow.directive";
 export class CoursesComponent {
     title:string = "The title of courses page";
     courses;
+    isActive = true;
 
     constructor(courseService: CourseService){
         this.courses = courseService.getCourses();
