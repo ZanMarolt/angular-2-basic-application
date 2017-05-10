@@ -8,7 +8,7 @@ import {AutoGrowDirective} from "./auto-grow.directive";
 @Component({
     selector: 'courses',
     template: `
-        <h2 [class.active]="isActive">Courses</h2>
+        <h2 [class.active]="isActive ? 'active' : ''">Courses</h2>
         {{ title }}
         <input autoGrow />
         <ul>

@@ -4,7 +4,7 @@ import {AuthorService} from './author.service'
 @Component({
     selector: 'authors',
     template: `
-        <h2>Authors</h2>
+        <h2 [style.backgroundColor]="isActive ? 'blue' : ''">Authors</h2>
         {{ title }}
         <ul>
             <li *ngFor="#author of authors">
@@ -18,6 +18,7 @@ import {AuthorService} from './author.service'
 export class AuthorsComponent {
     title:string = 'The title of authors page';
     authors:string[];
+    isActive = true;
 
     constructor(authorService: AuthorService){
         this.authors = authorService.getAuthors();

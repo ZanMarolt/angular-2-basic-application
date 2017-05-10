@@ -24,12 +24,13 @@ System.register(['angular2/core', './author.service'], function(exports_1, conte
             AuthorsComponent = (function () {
                 function AuthorsComponent(authorService) {
                     this.title = 'The title of authors page';
+                    this.isActive = true;
                     this.authors = authorService.getAuthors();
                 }
                 AuthorsComponent = __decorate([
                     core_1.Component({
                         selector: 'authors',
-                        template: "\n        <h2>Authors</h2>\n        {{ title }}\n        <ul>\n            <li *ngFor=\"#author of authors\">\n                {{ author }}\n            </li>\n        </ul>\n    ",
+                        template: "\n        <h2 [style.backgroundColor]=\"isActive ? 'blue' : ''\">Authors</h2>\n        {{ title }}\n        <ul>\n            <li *ngFor=\"#author of authors\">\n                {{ author }}\n            </li>\n        </ul>\n    ",
                         providers: [author_service_1.AuthorService]
                     }), 
                     __metadata('design:paramtypes', [author_service_1.AuthorService])
